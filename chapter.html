@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chapter Resources | CSSC</title>
+<style>
+:root{--blue:#1769d2;--navy:#0c1b31;--muted:#64748b;--bg:#f6f8fc;--line:#e0e7f0}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:#1e293b;line-height:1.6}.container{width:min(900px,92%);margin:auto}.nav{background:#ffffffed;border-bottom:1px solid var(--line);padding:17px 0}.nav a{color:var(--blue);text-decoration:none;font-weight:700}.hero{padding:35px 0 22px}.crumb{font-size:13px;color:var(--muted);margin-bottom:8px}.hero h1{font-size:clamp(27px,4vw,38px);color:var(--navy)}.hero p{color:var(--muted);margin-top:7px}.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;padding-bottom:55px}.resource{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}.resource h2{font-size:18px;color:var(--navy);margin-bottom:5px}.resource p{font-size:14px;color:var(--muted);margin-bottom:14px}.btn{display:inline-block;text-decoration:none;background:var(--blue);color:white;padding:9px 13px;border-radius:8px;font-weight:700;font-size:14px}.btn.disabled{background:#e8edf4;color:#718096;pointer-events:none}.hint{background:#fff9e8;border:1px solid #f4d58d;color:#795b14;border-radius:10px;padding:14px;margin:0 0 20px;font-size:14px}footer{background:#07111f;color:#cbd5e1;padding:24px 0;font-size:13px}@media(max-width:650px){.resource-grid{grid-template-columns:1fr}}
+</style></head><body><header class="nav"><div class="container"><a id="back" href="course.html">← Back to course</a></div></header>
+<main class="container"><section class="hero"><div class="crumb" id="crumb">Course / Chapter</div><h1 id="title">Chapter resources</h1><p id="description"></p></section>
+<div class="hint">Replace the sample URLs in <b>resources.js</b> with your Google Drive share links and YouTube video links. Buttons with missing links stay disabled until you add a URL.</div>
+<section class="resource-grid" id="resourceGrid"></section></main><footer><div class="container">© 2026 Computer Science Study Center</div></footer>
+<script src="resources.js"></script><script>
+const p=new URLSearchParams(location.search),level=p.get('level')||'igcse',id=p.get('chapter')||'';
+const names={igcse:'IGCSE / O Level',as:'AS Level',alevel:'A Level'};
+const items=(window.CSSC_RESOURCES&&window.CSSC_RESOURCES[level])||[],c=items.find(x=>x.id===id)||items[0];
+document.getElementById('back').href='course.html?level='+encodeURIComponent(level);
+if(!c){document.getElementById('title').textContent='Chapter not found';document.getElementById('description').textContent='Go back to the course page and select a chapter.';}
+else{
+document.title=c.title+' | CSSC';document.getElementById('title').textContent=c.title;document.getElementById('description').textContent=c.description;document.getElementById('crumb').textContent=(names[level]||names.igcse)+' / '+c.title;
+const resources=[['video','Video lesson','Watch the CSSC YouTube lecture.'],['notes','PDF notes','Open or download the chapter notes from Google Drive.'],['practice','Topical practice','Practice questions for this chapter.'],['markscheme','Mark scheme','Check your answers after attempting the questions.']];
+const grid=document.getElementById('resourceGrid');
+resources.forEach(([key,title,desc])=>{const url=c[key]||'';const box=document.createElement('article');box.className='resource';box.innerHTML='<h2>'+title+'</h2><p>'+desc+'</p>';const a=document.createElement('a');a.className='btn'+(!url?' disabled':'');a.textContent=url?(key==='video'?'Watch video':key==='notes'?'Open / download PDF':key==='practice'?'Open practice':'Open mark scheme'):'Add link in resources.js';if(url){a.href=url;a.target='_blank';a.rel='noopener noreferrer'}else{a.href='#';a.setAttribute('aria-disabled','true')}box.appendChild(a);grid.appendChild(box)});
+}
+</script></body></html>

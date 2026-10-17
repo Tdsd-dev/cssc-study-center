@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer Science Study Center</title>
+<meta name="description" content="Cambridge IGCSE, O Level, AS and A Level Computer Science lessons, notes and practice.">
+<style>
+:root{--blue:#1769d2;--navy:#0c1b31;--ink:#1e293b;--muted:#64748b;--bg:#f6f8fc;--line:#e0e7f0}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}.container{width:min(1120px,92%);margin:auto}
+.navbar{position:fixed;z-index:10;top:0;left:0;width:100%;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);transition:.25s}.navbar.scrolled{background:rgba(255,255,255,.78);backdrop-filter:blur(12px);box-shadow:0 5px 22px #0f172a12}.nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-weight:800}.logo{width:42px;height:42px;object-fit:contain;border-radius:9px}.fallback{width:42px;height:42px;display:grid;place-items:center;background:var(--blue);color:white;border-radius:9px}.nav-links{display:flex;align-items:center;gap:3px;list-style:none}.nav-links a,.dropbtn{display:block;padding:10px 12px;border:0;border-radius:8px;background:none;color:#334155;text-decoration:none;font-weight:600;font-size:14px;cursor:pointer}.nav-links a:hover,.dropbtn:hover{background:#eef5ff;color:var(--blue)}.dropdown{position:relative}.dropmenu{position:absolute;top:45px;left:0;width:220px;padding:7px;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px #0f172a18;display:none}.dropdown:hover .dropmenu,.dropdown:focus-within .dropmenu{display:block}.dropmenu a{padding:9px 11px}.menubtn{display:none;border:0;background:none;font-size:25px}
+.hero{padding:112px 0 48px}.hero-box{min-height:340px;position:relative;overflow:hidden;border-radius:22px;background:linear-gradient(110deg,#092348,#1769d2);display:flex;align-items:center;padding:48px}.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,#071a35eF,#0b3267bb,#0b326744)}.hero-content{position:relative;color:#fff;max-width:650px}.eyebrow{display:inline-block;padding:5px 10px;border:1px solid #ffffff50;background:#ffffff18;border-radius:99px;font-size:12px;font-weight:700;margin-bottom:14px}.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin-bottom:14px}.hero p{font-size:17px;color:#e5edf8;max-width:590px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.btn{display:inline-block;padding:10px 16px;border-radius:9px;text-decoration:none;font-weight:700}.primary{background:#fff;color:var(--blue)}.secondary{border:1px solid #ffffff80;color:white}.section{padding:52px 0}.section-head{text-align:center;margin-bottom:28px}.section-head h2{font-size:30px;color:var(--navy);line-height:1.3}.section-head p{color:var(--muted);margin-top:8px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{display:block;background:white;border:1px solid var(--line);border-radius:15px;padding:22px;text-decoration:none;color:inherit;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0f172a0c;border-color:#b8d3f7}.card h3{font-size:18px;color:var(--navy);margin-bottom:7px}.card p{font-size:14px;color:var(--muted)}.cardlink{display:inline-block;margin-top:14px;color:var(--blue);font-weight:700;font-size:14px}.course{border-top:4px solid var(--blue)}.course:nth-child(2){border-top-color:#7c3aed}.course:nth-child(3){border-top-color:#059669}.darkstrip{background:var(--navy);color:white}.stripgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.stripitem{border:1px solid #ffffff20;background:#ffffff08;padding:20px;border-radius:12px}.stripitem strong{display:block}.stripitem span{font-size:13px;color:#cbd5e1}footer{background:#07111f;color:#cbd5e1;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot strong{color:white}.foot p{font-size:13px}
+@media(max-width:850px){.nav-links{display:none;position:absolute;top:70px;left:0;width:100%;background:white;padding:10px 4%;border-bottom:1px solid var(--line);align-items:stretch;flex-direction:column}.nav-links.open{display:flex}.menubtn{display:block}.dropmenu{position:static;width:100%;box-shadow:none;border:0;padding-left:15px}.dropdown.open .dropmenu{display:block}.hero-box{padding:30px 24px}.grid{grid-template-columns:1fr}.stripgrid{grid-template-columns:1fr}.foot{flex-direction:column;align-items:flex-start}}
+</style>
+</head><body>
+<header class="navbar" id="navbar"><div class="container nav-inner">
+<a class="brand" href="index.html"><img class="logo" src="assets/logo.png" alt="CSSC logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="fallback" style="display:none">CS</span><span>Computer Science Study Center</span></a>
+<button class="menubtn" id="menubtn" aria-label="Open menu">☰</button>
+<ul class="nav-links" id="navlinks">
+<li><a href="index.html">Home</a></li><li class="dropdown" id="coursesdrop"><button class="dropbtn" type="button">Courses ▾</button><div class="dropmenu"><a href="course.html?level=igcse">IGCSE / O Level</a><a href="course.html?level=as">AS Level</a><a href="course.html?level=alevel">A Level</a></div></li>
+<li><a href="#lectures">Lectures</a></li><li><a href="#notes">Notes</a></li><li><a href="#practice">Practice</a></li><li><a href="#about">About</a></li>
+</ul></div></header>
+<main>
+<section class="hero" id="home"><div class="container"><div class="hero-box">
+<img class="hero-bg" src="assets/banner.png" alt="" onerror="this.style.display='none'"><div class="hero-shade"></div>
+<div class="hero-content"><span class="eyebrow">CAMBRIDGE COMPUTER SCIENCE</span><h1>Learn it clearly.<br>Practice it confidently.</h1><p>Study resources for IGCSE, O Level, AS Level and A Level — with lectures, downloadable notes, topical practice and past-paper support.</p><div class="actions"><a class="btn primary" href="#courses">Explore courses</a><a class="btn secondary" href="#resources">Open resources</a></div></div>
+</div></div></section>
+<section class="section" id="courses"><div class="container"><div class="section-head"><h2>Choose your course</h2><p>Open a level to browse chapters, videos, notes and practice materials.</p></div><div class="grid">
+<a class="card course" href="course.html?level=igcse"><h3>IGCSE / O Level</h3><p>Cambridge syllabus lessons, chapter notes, topical questions and past-paper practice.</p><span class="cardlink">Browse course →</span></a>
+<a class="card course" href="course.html?level=as"><h3>AS Level</h3><p>Build your foundations with clear explanations and exam-focused resources.</p><span class="cardlink">Browse course →</span></a>
+<a class="card course" href="course.html?level=alevel"><h3>A Level</h3><p>Advanced theory, algorithms, programming and structured exam preparation.</p><span class="cardlink">Browse course →</span></a>
+</div></div></section>
+<section class="darkstrip section" id="resources"><div class="container"><div class="section-head"><h2 style="color:white">Study resources</h2><p>Choose a resource type to open its course pages.</p></div><div class="stripgrid">
+<div class="stripitem"><strong>PDF Notes</strong><span>Chapter notes and revision sheets</span></div><div class="stripitem"><strong>Video Lessons</strong><span>CSSC YouTube lectures</span></div><div class="stripitem"><strong>Practice</strong><span>Topicals, quizzes and past papers</span></div>
+</div></div></section>
+<section class="section" id="lectures"><div class="container"><div class="section-head"><h2>Lectures</h2><p>Choose your level to find chapter-by-chapter lessons.</p></div><div class="grid">
+<a class="card" href="course.html?level=igcse"><h3>IGCSE / O Level lectures</h3><p>Watch lessons organised by chapter.</p><span class="cardlink">View lectures →</span></a>
+<a class="card" href="course.html?level=as"><h3>AS Level lectures</h3><p>Study the AS syllabus in a clear sequence.</p><span class="cardlink">View lectures →</span></a>
+<a class="card" href="course.html?level=alevel"><h3>A Level lectures</h3><p>Continue to advanced Computer Science topics.</p><span class="cardlink">View lectures →</span></a>
+</div></div></section>
+<section class="section" id="notes"><div class="container"><div class="section-head"><h2>PDF Notes</h2><p>Browse downloadable chapter notes by course.</p></div><div class="grid">
+<a class="card" href="course.html?level=igcse&tab=notes"><h3>IGCSE / O Level Notes</h3><p>Open chapter pages and download your notes.</p><span class="cardlink">Browse notes →</span></a>
+<a class="card" href="course.html?level=as&tab=notes"><h3>AS Level Notes</h3><p>Open AS revision notes and study sheets.</p><span class="cardlink">Browse notes →</span></a>
+<a class="card" href="course.html?level=alevel&tab=notes"><h3>A Level Notes</h3><p>Browse advanced theory and revision resources.</p><span class="cardlink">Browse notes →</span></a>
+</div></div></section>
+<section class="section" id="practice"><div class="container"><div class="section-head"><h2>Practice & past papers</h2><p>Open chapter pages for topic questions, practice sets and mark schemes.</p></div><div class="grid">
+<a class="card" href="course.html?level=igcse&tab=practice"><h3>IGCSE / O Level Practice</h3><p>Topical questions, past papers and mark schemes.</p><span class="cardlink">Start practice →</span></a>
+<a class="card" href="course.html?level=as&tab=practice"><h3>AS Level Practice</h3><p>Practice questions and exam preparation.</p><span class="cardlink">Start practice →</span></a>
+<a class="card" href="course.html?level=alevel&tab=practice"><h3>A Level Practice</h3><p>Advanced practice and exam-style questions.</p><span class="cardlink">Start practice →</span></a>
+</div></div></section>
+<section class="section" id="about"><div class="container"><div class="section-head"><h2>About CSSC</h2><p>A simple, organised place to study Computer Science.</p></div><div class="card"><h3>Computer Science Study Center</h3><p>CSSC brings Cambridge IGCSE/O Level, AS Level and A Level Computer Science resources together in one place: lessons, notes, practice and past-paper support.</p></div></div></section>
+</main><footer><div class="container foot"><div><strong>Computer Science Study Center</strong><p>IGCSE • O Level • AS Level • A Level</p></div><p>© 2026 CSSC</p></div></footer>
+<script>
+const navbar=document.getElementById('navbar'), menuBtn=document.getElementById('menubtn'), navLinks=document.getElementById('navlinks'), drop=document.getElementById('coursesdrop');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>35));
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+drop.querySelector('.dropbtn').addEventListener('click',()=>{if(innerWidth<=850)drop.classList.toggle('open')});
+</script></body></html>
